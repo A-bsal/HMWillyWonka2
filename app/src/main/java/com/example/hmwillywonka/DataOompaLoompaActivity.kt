@@ -7,9 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
-import org.json.JSONObject
 import java.net.URL
-
 
 class DataOompaLoompaActivity : AppCompatActivity() {
 
@@ -19,10 +17,10 @@ class DataOompaLoompaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_oompa_loompa)
 
-            val _ineItent = intent.extras
-            _ID_OOMPA_LOOMPA = _ineItent?.get("id").toString()
+        val _ineItent = intent.extras
+        _ID_OOMPA_LOOMPA = _ineItent?.get("id").toString()
 
-            FetchJsonData().execute()
+        FetchJsonData().execute()
     }
 
     inner class FetchJsonData() : AsyncTask<String, Void, String>() {
@@ -58,8 +56,6 @@ class DataOompaLoompaActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.txtFood).text = _favData?.food
             findViewById<TextView>(R.id.txtSong).text = _favData?.song
             findViewById<TextView>(R.id.txtRandom_string).text = _favData?.random_string
-
-
         }
     }
 }

@@ -35,13 +35,13 @@ class MainActivity : AppCompatActivity() {
             this.TurnPage(_PAGE_NUM + 1)
         }
 
-        findViewById<ListView>(R.id.LstOompaLoompers).setOnItemClickListener {_, view, _, _ ->
+        findViewById<ListView>(R.id.LstOompaLoompers).setOnItemClickListener { _, view, _, _ ->
 
-            val _id = view.findViewById<TextView>(R.id.txtId).text
+            val _strId = view.findViewById<TextView>(R.id.txtId).text
 
-            val i = Intent(this, DataOompaLoompaActivity::class.java)
-            i.putExtra("id", _id)
-            startActivity(i)
+            val _intIntent = Intent(this, DataOompaLoompaActivity::class.java)
+            _intIntent.putExtra("id", _strId)
+            startActivity(_intIntent)
         }
     }
 
@@ -101,27 +101,27 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-            var objOompaLoomper = dataList?.get(position)
+            var _objOompaLoomper = dataList?.get(position)
 
             val _rowView = inflater.inflate(R.layout.item_oompa_loomper, parent, false)
 
             _rowView.findViewById<TextView>(R.id.txtId).text =
-                objOompaLoomper?.id.toString()
+                _objOompaLoomper?.id.toString()
 
             val _imgImage = _rowView.findViewById(R.id.imgImage) as ImageView
-            Picasso.get().load(objOompaLoomper?.image).into(_imgImage)
+            Picasso.get().load(_objOompaLoomper?.image).into(_imgImage)
 
             _rowView.findViewById<TextView>(R.id.txtFirst_name).text =
-                objOompaLoomper?.first_name + " "
+                _objOompaLoomper?.first_name + " "
 
             _rowView.findViewById<TextView>(R.id.txtLast_name).text =
-                objOompaLoomper?.last_name
+                _objOompaLoomper?.last_name
 
             _rowView.findViewById<TextView>(R.id.lblProfession).text =
-                objOompaLoomper?.profession
+                _objOompaLoomper?.profession
 
             val _imgGender = _rowView.findViewById(R.id.imgGender) as ImageView
-            Common.getIconGender(objOompaLoomper?.gender.toString(),_imgGender)
+            Common.getIconGender(_objOompaLoomper?.gender.toString(),_imgGender)
 
             _rowView.tag = position
 

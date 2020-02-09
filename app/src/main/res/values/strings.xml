@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">HMWillyWonka</string>
+    <string name="lblProfession">Profession</string>
+    <string name="lblEmail">Email</string>
+    <string name="lblAge">Age</string>
+    <string name="lblCountry">Country</string>
+    <string name="lblHeight">Height</string>
+    <string name="lblFavorite">Favorite</string>
+    <string name="lblColor">Color</string>
+    <string name="lblFood">Food</string>
+    <string name="lblRandom_string">Random string</string>
+    <string name="lblSong">Song</string>
+</resources>
